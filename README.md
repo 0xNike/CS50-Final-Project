@@ -1,15 +1,15 @@
-# Drinking Games with Archie
+# Drinking Games with Wojak
 #### **Video Demo:** <URL HERE>
 <br>
 
 #### **Description:**
 
 If you ever find yourself bored drinking all alone, this game is designed for you!
-Meet **Archie** -- a bot that will play drinking games with you all night, till one of you gets drunk! :beers:
+Wojak will play drinking games with you all night, till one of you gets drunk! :beers: :metal:
 
 From the Homepage, you will be able to choose between 2 different games:
-1. [Five-Ten](docs/Five-Ten.md)
-2. [Direction](docs/Five-Ten.md)
+1. [Blackjack](docs/Blackjack.md)
+2. [Direction](docs/Direction.md)
 
 <!-- ##### Click on the respective games to find out more! -->
 
@@ -21,9 +21,7 @@ Here are some fun facts about Archie:
 2. You can wake him up after **15 minutes**, though he might not be able to stay awake very long
 3. He might **puke** if he drinks too much
 
-<br>
-
-## Have fun and please drink responsibly! :beers:
+## Have fun and please drink responsibly! :smile:
 
 
 

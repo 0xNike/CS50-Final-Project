@@ -1,0 +1,131 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <script src="/static/js/blackjack.js"></script>
+{% endblock %}
+
+{% block title %}
+    Blackjacl
+{% endblock %}
+
+{% block main %}
+
+    <!-- Blackjack -->
+    <div class="container text-center">
+
+        <div class="container-fluid">
+            <!-- Game Title -->
+            <h1 class="h1">Blackjack with Wojak!</h1>
+            <!-- Wojak's health / drunk level -->
+            <span hidden id="import-health">{{ currentHealth }}</span>
+            <div class="progress my-4" style="height: 3px;">
+                <div id="wojak-health" class="progress-bar bg-danger" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%"></div>
+            </div> 
+        </div>
+
+        <!-- Wojak Expression, Scoreboard and Speech -->
+        <div class="d-flex align-items-center justify-content-evenly">
+            <div class="d-flex-column">
+                <!-- Wojak's Score -->
+                <h6 class="h6">Woj</h6>
+                <p id="wscore">{{ w_scores }}</p>
+            </div>
+            <div id="wojak-face">
+                <!-- Wojak's face -->
+                <img src="/static/images/wojak-confident.png" class="img-thumbnail mx-auto d-block">
+            </div>
+            <div class="d-flex-column">
+                <!-- Player's Score -->
+                <h6 class="h6">You</h6>
+                <p id="pscore">{{ p_scores }}</p>
+            </div>
+        </div>
+        <!-- Wojak's Speech -->
+        <div class="mb-3" id="wojak-mouth"></div>
+        
+        <!-- Ask who goes first -->
+        <div class="container-fluid my-3" id="pregame">
+            <h4 class="h4 pb-3">Who starts first?</h4>
+                <button type="button" class="btn btn-light" id="wojak">Wojak</button>
+                <button type="button" class="btn btn-light" id="player">Me</button>
+            </form>
+        </div>
+        
+        
+        <!-- For Gameplay -->
+        <div class="game">
+            <!-- For Game Output -->
+            <!-- Wojak's Hands -->
+            <div id="arena">
+                <p id="w-sum"></p>
+                <div class="border image-stack d-inline-flex flex-center px-5" id="whand"></div>
+
+                <!-- For Game input -->
+                <!-- Player's Hands-->
+                <div class="image-stack d-inline-flex flex-center px-5" id="phand"></div>
+
+                <p id="p-sum"></p>
+            </div>
+                <!-- Player's Options-->
+                <div class="d-flex flex-column mb-5">
+                    <div class="d-flex flex-column">
+                        <button type="button" class="btn btn-light btn-lg mt-3 py-3 flex-fill" id="hit">Hit</button>
+                        <button type="button" class="btn btn-success btn-lg mt-3 py-3 flex-fill" id="stand">Stand</button>
+                        <form action="/blackjack" method="POST">
+                            <input hidden type="number" name="export-wscores" id="export-wscores">
+                            <input hidden type="number" name="export-pscores" id="export-pscores">
+                            <input hidden name="exportHealth" id="export-health">
+                            <button type="submit" style="display: none;" class="btn btn-success btn-lg mt-3 py-3 flex-fill" id="restart">Play again</button>
+                        </form>
+                    </div>
+                </div>
+        </div>
+
+    </div>
+
+    <!-- Game Instructions -->
+    <div class="container-fluid mt-5 p-4 border-top border-bottom" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+        <div class="d-inline-flex align-items-center">
+            <h3 class="h3 m-0">Instructions</h3>
+            <i class="fa-solid fa-caret-down mx-3"></i>
+        </div>
+        <div class="collapse" id="collapseExample">
+            <p class="py-3">Get a hand higher than Wojak, within a sum of 21! Whoever's hand exceeds 
+                            21 loses the round. The loser must drink a sip!<strong> You must down a glass if Wojak reaches 20 points.</strong></p>
+            <h4 class="h4">How to Play</h4>
+            <ol>
+                <li>Decide who goes first</li>
+                <li>Each player gets to draw cards using the "Hit" button during their turn</li>
+                <li>Once player is comfy with their hand, click on the "Stand" button</li>
+                <li>If you were served an Ace and a Ten/Picture, you got blackjack!</li>
+                <li>Getting blackjack is an instant win!</li>
+                <li>If Wojak has a higher hand than you that's within 21, you lose the round.</li>
+                <li>Otherwise, you win the round! Good luck, anon!</li>
+            </ol>
+            <h4 class="h4 pt-4">Points System</h4>
+            <table class="table table-dark">
+                <thead>
+                    <tr>
+                        <th>Hands</th><th>Points</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>No Blackjack</td><td>1 point</td>
+                    </tr>
+                    <tr>
+                        <td>Blackjack</td><td>2 points</td>
+                    </tr>
+                    <tr>
+                        <td>Wu-Long</td><td>2 points</td>
+                    </tr>
+                    <tr>
+                        <td>Ban-Ban</td><td>5 points</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block head %}
+    <script src="/static/js/index.js"></script>
+{% endblock %}
+
+
+{% block title %}
+    Homepage
+{% endblock %}
+
+{% block main %}
+
+    <div class="container-md text-center d-flex flex-column justify-content-around mb-3">
+    
+        <h1 class="h1">Play with Wojak!</h1>
+        <!-- Wojak's health / drunk level -->
+        <span hidden id="import-health">{{ currentHealth }}</span>
+        <div id="wojak-face">
+            <!-- Wojak's face -->
+            <img src="/static/images/wojak-smile.png" class="img-thumbnail mx-auto d-block">
+        </div>
+        <div class="game-menu">
+            <a class="btn btn-light" href="/blackjack" type="button">Blackjack</a>
+            <a class="btn btn-light" href="/direction" type="button">Direction</a>
+        </div>
+
+    </div>
+
+{% endblock %}

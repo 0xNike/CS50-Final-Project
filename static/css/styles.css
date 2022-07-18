@@ -1,0 +1,58 @@
+/* main elements */
+
+img {
+    width: 150px;
+    margin: 30px 0px;
+}
+
+main {
+    padding: 30px 0px;
+}
+
+
+/* items */
+
+#game-menu {
+    height: 300px;
+    width: 250px;
+}
+
+.card {
+    max-height: 140px;
+}
+
+.image-stack {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    position: relative;
+}
+
+.image-stack__item--1 {
+    grid-row: 1;
+    max-width: 120px;
+    z-index: 0;
+}
+.image-stack__item--2 {
+    grid-row: 1;
+    max-width: 120px;
+    margin-left: -97px;
+    z-index: 1;
+}
+.image-stack__item--3 {
+    grid-row: 1;
+    max-width: 120px;
+    margin-left: -97px;
+    z-index: 2;
+}
+.image-stack__item--4 {
+    grid-row: 1;
+    max-width: 120px;
+    margin-left: -97px;
+    z-index: 3;
+}
+.image-stack__item--5 {
+    grid-row: 1;
+    max-width: 120px;
+    margin-left: -97px;
+    z-index: 4;
+}
