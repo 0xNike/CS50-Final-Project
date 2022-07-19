@@ -11,17 +11,17 @@ document.addEventListener('DOMContentLoaded', function() {
     let mouth = document.querySelector("#wojak-mouth");
     let pscore = document.querySelector("#pscore");
     let wscore = document.querySelector("#wscore");
-    let exportwScore = document.querySelector("#export-wscores")
-    let exportpScore = document.querySelector("#export-pscores")
+    let exportwScore = document.querySelector("#export-wscores");
+    let exportpScore = document.querySelector("#export-pscores");
     let phand = document.querySelector("#phand");
     let whand = document.querySelector("#whand");
-    let exportHealth = document.querySelector("#export-health");
+    let exportHealth = document.querySelector(".export-health");
     let importHealth = document.querySelector("#import-health");
     let hit = document.querySelector("#hit");
     let stand = document.querySelector("#stand");
     let psum = document.querySelector("#p-sum");
     let wsum = document.querySelector("#w-sum");
-    let restart = document.querySelector("#restart")
+    let restart = document.querySelector("#restart");
 
     // Fixed Global Variables
     
@@ -202,6 +202,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if (p_hands == 21 || p_hands > 21) {
             checkWhoWins();
         }
+        
 
         // Check for Wu-Long
         if (p_hands <= 21 && p_nextCardCount == 6) {
@@ -210,6 +211,11 @@ document.addEventListener('DOMContentLoaded', function() {
             console.log("Player got Wu-Long!!!")
             p_wins += 2;
             curr_health -= 8;
+        }
+
+        // Check for Blackjack
+        if (p_hands > 21 && p_nextCardCount == 6) {
+            checkWhoWins();
         }
 
     });
@@ -531,6 +537,7 @@ document.addEventListener('DOMContentLoaded', function() {
             setTimeout(disableGame,2000);
         }
         exportHealth.value = curr_health;
+        console.log("Exporting health at: " + exportHealth.value)
 
         // Update Face
         updateFace();
@@ -600,7 +607,7 @@ document.addEventListener('DOMContentLoaded', function() {
             curr_health -= 4;
         }
         // Player has lesser than Wojak, while both under 21
-        else if (p_hands < w_hands && w_hands < 21 && p_hands < 21) {
+        else if (p_hands < w_hands && w_hands <= 21 && p_hands < 21) {
             mouth.innerHTML = "You lost! Drink!"
             w_wins += 1;
         }

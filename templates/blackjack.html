@@ -58,13 +58,19 @@
             <!-- Wojak's Hands -->
             <div id="arena">
                 <p id="w-sum"></p>
-                <div class="border image-stack d-inline-flex flex-center px-5" id="whand"></div>
-
+                <div class="border image-stack d-inline-flex px-5" id="whand"></div>
+                
                 <!-- For Game input -->
                 <!-- Player's Hands-->
-                <div class="image-stack d-inline-flex flex-center px-5" id="phand"></div>
-
+                <div class="image-stack d-inline-flex px-5" id="phand"></div>
+                <div class="container" id="dlabel">
+                    <div class="row pt-3" style="margin: auto; max-width: 50%;">
+                        <div class="col">Wojak</div>
+                        <div class="col">You</div>
+                    </div>
+                </div>
                 <p id="p-sum"></p>
+                
             </div>
                 <!-- Player's Options-->
                 <div class="d-flex flex-column mb-5">
@@ -74,7 +80,7 @@
                         <form action="/blackjack" method="POST">
                             <input hidden type="number" name="export-wscores" id="export-wscores">
                             <input hidden type="number" name="export-pscores" id="export-pscores">
-                            <input hidden name="exportHealth" id="export-health">
+                            <input hidden name="exportHealth" class="export-health">
                             <button type="submit" style="display: none;" class="btn btn-success btn-lg mt-3 py-3 flex-fill" id="restart">Play again</button>
                         </form>
                     </div>

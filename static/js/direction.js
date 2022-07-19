@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let mouth = document.querySelector("#wojak-mouth");
     let pscore = document.querySelector("#pscore");
     let wscore = document.querySelector("#wscore");
-    let exportHealth = document.querySelector(".export-health");
+    let exportHealthArray = document.getElementsByClassName("export-health");
     let importHealth = document.querySelector("#import-health");
 
     // Hide game first
@@ -21,7 +21,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var curr_health = importHealth.textContent;
     let insert_health = "width: " + curr_health + "% !important"; 
     health.setAttribute("style",insert_health);
-    exportHealth.value = curr_health;
+    for (var i = 0; i < exportHealthArray.length; i++) {
+        exportHealthArray[i].value = curr_health;
+        console.log("loaded pos" + i + "with" + exportHealthArray[i])
+    }
+    
 
     // Check first player
 
@@ -180,6 +184,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     }
                 }             
             }
+            for (var i = 0; i < exportHealthArray.length; i++) {
+                exportHealthArray[i].value = curr_health;
+                console.log("updated health @!" + String(i))
+            }
         });
     }
 
@@ -191,7 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
         health.setAttribute("style",insert_health);
 
         // Prepare to export Wojak's health
-        exportHealth.value = curr_health;
+        // exportHealth.value = curr_health;
         console.log("Current health to export: " + curr_health)
         
         // Track Wojak's expressions, use ev.type

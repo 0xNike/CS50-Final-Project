@@ -37,13 +37,15 @@
               <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <form action="/backjack" method="POST">
-                      <a class="nav-link" href="/blackjack">Blackjack</a>
+                    <form action="/blackjack" method="POST">
+                      <input hidden name="exportHealth" class="export-health">
+                      <input type="submit" value="Blackjack" class="nav-link bg-dark border-0">
                     </form>
                   </li>
                   <li class="nav-item">
                     <form action="/direction" method="POST">
-                      <a class="nav-link" href="/direction">Direction</a>
+                      <input hidden name="exportHealth" class="export-health">
+                      <input type="submit" value="Direction" class="nav-link bg-dark border-0">
                     </form>
                   </li>
                 </ul>

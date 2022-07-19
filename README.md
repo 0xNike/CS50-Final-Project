@@ -1,5 +1,5 @@
-# Drinking Games with Wojak
-#### **Video Demo:** <URL HERE>
+# Drinking Games with Wojak :beers:
+#### **Video Demo:** Watch it [here](https://youtu.be/29UZhpzViaQ)
 <br>
 
 #### **Description:**
@@ -13,15 +13,15 @@ From the Homepage, you will be able to choose between 2 different games:
 
 <!-- ##### Click on the respective games to find out more! -->
 
-Once you have selected on your desired game, you will see Archie waiting for you to start the game.
+Once you have selected on your desired game, you will see Wojak waiting for you to start the game.
 <br>
 
-Here are some fun facts about Archie:
-1. He **can** get drunk, and if he does, he will fall asleep
-2. You can wake him up after **15 minutes**, though he might not be able to stay awake very long
-3. He might **puke** if he drinks too much
+Here are some fun facts about Wojak:
+1. He **can** get drunk, and if he does, he will fall asleep :sleepy:
+2. He is very emotive and competitive! :laughing:
+3. He usually gets back into the game within a minute!
 
-## Have fun and please drink responsibly! :smile:
+### Have fun and please drink responsibly! :smile:
 
 
 

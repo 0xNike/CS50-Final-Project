@@ -34,12 +34,18 @@ def after_request(response):
 def index():
     
     if request.method == "POST":
+
         currentHealth = request.form.get("exportHealth")
+        if (currentHealth == ""):
+            currentHealth = session['curr_health']
+
         print("app.py/homeroute: Saved current health at: " + str(currentHealth))
+
         session['curr_health'] = currentHealth
         return render_template("index.html", currentHealth=currentHealth)
     
     else:
+        
         session['curr_health'] = 100
         currentHealth = session['curr_health']
         return render_template("index.html", currentHealth=currentHealth)
@@ -49,25 +55,32 @@ def index():
 def blackjack():
     
     if request.method == "POST":
-        
+
         w_scores = request.form.get("export-wscores")
         p_scores = request.form.get("export-pscores")
+
+        if (w_scores == None):
+            w_scores = 0
+            p_scores = 0
+
         print("Current Wojak scores: " + str(w_scores))
         print("Current Player scores: " + str(p_scores))
         db.execute("UPDATE scores SET w_score = ?, p_score = ?", int(w_scores), int(p_scores))
 
         currentHealth = request.form.get("exportHealth")
+        if (currentHealth == ""):
+            currentHealth = session['curr_health']
+
         print("app.py/blackjack: Saved current health at: " + str(currentHealth))
         session['curr_health'] = currentHealth
 
         return render_template("blackjack.html", currentHealth=currentHealth, w_scores=w_scores, p_scores=p_scores)
 
     else: 
-        print("GET METHOD TRIGGERED")
+        
         w_scores = 0
         p_scores = 0
         db.execute("UPDATE scores SET w_score = ?, p_score = ?", w_scores, p_scores)
-
         currentHealth = session['curr_health']
         print('app.py/blackjack: Loaded Current health at: ' + str(currentHealth))
         return render_template("blackjack.html", currentHealth=currentHealth, w_scores=w_scores, p_scores=p_scores)
@@ -77,11 +90,17 @@ def blackjack():
 def direction():
 
     if request.method == "POST":
+
         currentHealth = request.form.get("exportHealth")
+        if (currentHealth == ""):
+            currentHealth = session['curr_health']
+        
         print("Saved current health at: " + currentHealth)
         session['curr_health'] = currentHealth
         return render_template("direction.html", currentHealth=currentHealth)
-    else:    
+
+    else:
+
         currentHealth = session['curr_health']
         print("app.py/direction: Loaded Current health at: " + str(currentHealth))
         return render_template("direction.html", currentHealth=currentHealth)
